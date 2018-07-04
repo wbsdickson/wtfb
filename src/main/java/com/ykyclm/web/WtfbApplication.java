@@ -1,4 +1,4 @@
-package com.ykyclm.wtfb;
+package com.ykyclm.web;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
