@@ -60,12 +60,18 @@
 		<!--  jdbc + mysql end-->
 		
 		<!-- jpa -->
-		<dependency>
+ 		<dependency> 
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 		<!-- jpa END -->
 		
+		<!-- data REST -->
+<!-- 		<dependency> -->
+<!--             <groupId>org.springframework.boot</groupId> -->
+<!--             <artifactId>spring-boot-starter-data-rest</artifactId> -->
+<!--         </dependency> -->
+		<!-- data REST end-->
 		
 	</dependencies>
 
@@ -76,6 +82,10 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+		
+		
+		<finalName>wtfb</finalName>
+		
 	</build>
 
 

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<div th:fragment="allcss">
+		<link rel="stylesheet" th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" > <!-- Bootstrap core CSS-->
+		<link rel="stylesheet" th:href="@{/vendor/font-awesome/css/font-awesome.min.css}" type="text/css"></link> <!-- Custom fonts for this template-->
+		<link rel="stylesheet" th:href="@{/vendor/datatables/dataTables.bootstrap4.css}"></link> <!-- Page level plugin CSS-->
+  		<link rel="stylesheet" th:href="@{/css/sb-admin.css}"></link><!-- Custom styles for this template-->
+	</div>
+
+	<div th:fragment="alljs">
+    <!-- Bootstrap core JavaScript-->
+    <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+    <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+    <!-- Core plugin JavaScript-->
+    <script th:src="@{/vendor/jquery-easing/jquery.easing.min.js}"></script>
+    <!-- Page level plugin JavaScript-->
+    <script th:src="@{/vendor/datatables/jquery.dataTables.js}"></script>
+    <script th:src="@{/vendor/datatables/dataTables.bootstrap4.js}"></script>
+    <!-- Custom scripts for all pages-->
+    <script th:src="@{/js/sb-admin.min.js}"></script>
+    <!-- Custom scripts for this page-->
+    <script th:src="@{/js/sb-admin-datatables.min.js}" ></script>
+	</div>
+
+
+	
+
+
+</html>
