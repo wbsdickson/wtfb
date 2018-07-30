@@ -9,6 +9,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "player")
 public class Player {
+	
 	@Id
     @GeneratedValue
 	private long id;
@@ -17,19 +18,18 @@ public class Player {
 	@Column(nullable = false, unique = true)
 	private String surname;
 	@Column(nullable = true)
-	private int age;
+	private Integer age;
 	@Column(nullable = true)
-	private int height;
+	private Integer height;
 	@Column(nullable = true)
-	private int weight;
+	private Integer weight;
 	@Column(nullable = true)
 	private String position;
 	@Column(nullable = true)
 	private String subPosition;
 	@Column(nullable = true)
-	private int shirt;
-	@Column(nullable = true)
-	private int countryID;
+	private Integer shirt;
+	
 	
 	public long getId() {
 		return id;
@@ -49,22 +49,22 @@ public class Player {
 	public void setSurname(String surname) {
 		this.surname = surname;
 	}
-	public int getAge() {
+	public Integer getAge() {
 		return age;
 	}
-	public void setAge(int age) {
+	public void setAge(Integer age) {
 		this.age = age;
 	}
-	public int getHeight() {
+	public Integer getHeight() {
 		return height;
 	}
-	public void setHeight(int height) {
+	public void setHeight(Integer height) {
 		this.height = height;
 	}
-	public int getWeight() {
+	public Integer getWeight() {
 		return weight;
 	}
-	public void setWeight(int weight) {
+	public void setWeight(Integer weight) {
 		this.weight = weight;
 	}
 	public String getPosition() {
@@ -79,16 +79,27 @@ public class Player {
 	public void setSubPosition(String subPosition) {
 		this.subPosition = subPosition;
 	}
-	public int getShirt() {
+	public Integer getShirt() {
 		return shirt;
 	}
-	public void setShirt(int shirt) {
+	public void setShirt(Integer shirt) {
 		this.shirt = shirt;
 	}
-	public int getCountryID() {
+	public Integer getTeamID() {
+		return teamID;
+	}
+	public void setTeamID(Integer teamID) {
+		this.teamID = teamID;
+	}
+	public Integer getCountryID() {
 		return countryID;
 	}
-	public void setCountryID(int countryID) {
+	public void setCountryID(Integer countryID) {
 		this.countryID = countryID;
 	}
+	@Column(nullable = false)
+	private Integer teamID;
+	@Column(nullable = true)
+	private Integer countryID;
+
 }

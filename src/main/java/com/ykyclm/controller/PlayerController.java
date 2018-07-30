@@ -21,16 +21,16 @@ public class PlayerController {
 
 	@Autowired
 	PlayerService playerService;
-	
+
 //	@RequestMapping("/")
 //    public String index() {
 //        return "players/list";  //這樣就跳到template 裡面個list.html
 //    }
-	
+
 	@RequestMapping("/list")
     public String list(Model model) {
         List<Player> players = playerService.getPlayerList();
         model.addAttribute("players", players);
-        return "players/list";
+        return "player/list";
     }
 }
