@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Player - WTFB</title>
+  <div th:replace="~{fragments/allcssjs :: allcss}"></div>
+</head>
+
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+  <!-- Navigation-->
+  <div th:replace="~{navbar :: navbar}"></div>
+  <!-- Navigation End-->
+
+
+  <div class="content-wrapper">
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="/">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Tables</li>
+      </ol>
+
+      <!-- Add Player location -->
+      <div class="container">
+      	<h1>New player</h1>
+      	<div class="col-md-4">
+
+
+      		<form th:object="${player}" th:action="@{add}"  action="#" method="post">
+      			<input type="text" th:field="*{firstName}" class="form-control"  placeholder="Firstname" />
+      			<div style="clear: both; display: block; height: 10px;"></div>
+      			<input type="text" th:field="*{surname}" class="form-control"  placeholder="Surname" />
+      			<div style="clear: both; display: block; height: 10px;"></div>
+            <input type="text" th:field="*{age}" class="form-control" placeholder="Age" />
+            <div style="clear: both; display: block; height: 10px;"></div>
+            <input type="text" th:field="*{height}" class="form-control" placeholder="Height" />
+            <div style="clear: both; display: block; height: 10px;"></div>
+            <input type="text" th:field="*{weight}" class="form-control" placeholder="weight" />
+            <div style="clear: both; display: block; height: 10px;"></div>
+            <input type="text" th:field="*{position}" class="form-control" placeholder="Position" />
+            <div style="clear: both; display: block; height: 10px;"></div>
+            <input type="text" th:field="*{subPosition}" class="form-control" placeholder="sub-Position" />
+            <div style="clear: both; display: block; height: 10px;"></div>
+            <input type="text" th:field="*{shirt}" class="form-control" placeholder="Shirt No." />
+            <div style="clear: both; display: block; height: 10px;"></div>
+      			<input type="submit" class="btn btn-primary" value="Save"></input>
+      		</form>
+      		<br>
+			<button type="button" class="btn btn-primary" th:onclick="|window.location.href='@{/player/list}'|">Back</button>
+
+      	</div>
+      </div>
+
+    </div>
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="text-center">
+          <small>Copyright © Your Website 2018</small>
+        </div>
+      </div>
+    </footer>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="login.html">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- js -->
+    <div th:replace="~{fragments/allcssjs :: alljs}"></div>
+    <!-- js end -->
+  </div>
+</body>
+
+</html>

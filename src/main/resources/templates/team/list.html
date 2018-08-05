@@ -2,7 +2,13 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-  <div th:replace="~{/fragments/allcssjs :: allcss}"></div>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Team - WTFB</title>
+  <div th:replace="~{fragments/allcssjs :: allcss}"></div>
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -23,43 +29,36 @@
       <!-- Example DataTables Card-->
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i> Players DataTable Example</div>
+          <i class="fa fa-table"></i> Clubs Table</div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
                   <th>ID</th>
-                  <th>Name</th>
-                  <th>Age</th>
-                  <th>Height</th>
-                  <th>Position</th>
-                  <th>Shirt</th>
-                  <th>countryId</th>
+                  <th>Code</th>
+                  <th>CountryId</th>
+                  <th>LeagueId</th>
+                  <th>Team Name</th>
                 </tr>
               </thead>
               <tfoot>
                 <tr>
                   <th>ID</th>
-                  <th>Name</th>
-                  <th>Age</th>
-                  <th>Height</th>
-                  <th>Position</th>
-                  <th>Shirt</th>
-                  <th>countryId</th>
+                  <th>Code</th>
+                  <th>CountryId</th>
+                  <th>LeagueId</th>
+                  <th>Team Name</th>
                 </tr>
               </tfoot>
               <tbody>
-               	<tr th:each="player : ${players}">
-              		<th scope="row" th:text="${player.id}"></th>
-		            <td th:text="${player.firstName} + ' ' + ${player.surname}"></td>
-		            <td th:text="${player.age}"></td>
-		            <td th:text="${player.height} + ' ' +  cm"></td>
-		            <td th:text="${player.position}"></td>
-		            <td th:text="${player.shirt}"></td>
-		            <td th:text="${player.countryID}"></td>
-		        <!--     <td><a th:href="@{/toEdit(id=${user.id})}">edit</a></td> -->
-		        </tr>
+              	 <tr th:each="team : ${teams}">
+                  	<th scope="row" th:text="${team.id}"></th>
+   		            <td th:text="${team.code}"></td>
+   		            <td th:text="${team.country.name}"></td>
+   		            <td th:text="${team.league.name}"></td>
+   		            <td th:text="${team.name}"></td>
+		         </tr>
               </tbody>
             </table>
           </div>
@@ -99,7 +98,7 @@
       </div>
     </div>
     <!-- js -->
-    <div th:replace="~{/fragments/allcssjs :: alljs}"></div>
+    <div th:replace="~{fragments/allcssjs :: alljs}"></div>
     <!-- js end -->
   </div>
 </body>

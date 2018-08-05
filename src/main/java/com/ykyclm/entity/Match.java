@@ -1,51 +1,74 @@
 package com.ykyclm.entity;
 
-import java.sql.Date;
-
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "matchesDetail")
+import org.hibernate.annotations.LazyToOne;
+import org.hibernate.annotations.LazyToOneOption;
+
+@Entity(name = "Matches")
+@Table(name = "matches")
 public class Match {
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@Column(nullable = false)
-	private Integer homeID; //team id for home
-	@Column(nullable = false)
-	private Integer awayID; //team id for away
-	@Column(nullable = false)
-	private Integer leagueID; //matches league
+	
+	private Integer homeID;
+	private Integer awayID;
+	
+	@OneToOne(
+			mappedBy = "match",  //for mapping MatchDetails => field name of "Match"
+			cascade = CascadeType.ALL,
+			orphanRemoval = true,
+			fetch = FetchType.LAZY
+		)
+	@LazyToOne( LazyToOneOption.NO_PROXY )
+	private MatchDetails details;
+	
+	
+	
+	
+
 	public long getId() {
 		return id;
 	}
+
 	public void setId(long id) {
 		this.id = id;
 	}
-	public Integer getHomeID() {
-		return homeID;
+
+
+	public MatchDetails getDetails() {
+		return details;
 	}
-	public void setHomeID(Integer homeID) {
-		this.homeID = homeID;
-	}
-	public Integer getAwayID() {
-		return awayID;
-	}
-	public void setAwayID(Integer awayID) {
-		this.awayID = awayID;
-	}
-	public Integer getLeagueID() {
-		return leagueID;
-	}
-	public void setLeagueID(Integer leagueID) {
-		this.leagueID = leagueID;
+
+	public void setDetails(MatchDetails details) {
+		this.details = details;
 	}
 	
+	
+	
+	//add match dtl
+	public void addDetails(MatchDetails details) {
+		details.setMatch (this);
+		this.details = details;
+	}
+	
+	//del match dtl
+	public void removeDetails() {
+		if ( details != null ) {
+			details.setMatch( null );
+			this.details = null;
+		}
+	}
 
 }

@@ -1,11 +1,16 @@
 package com.ykyclm.entity;
 
-import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -13,14 +18,24 @@ import javax.persistence.Table;
 public class League {
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	@Column(nullable = false)
 	private String name; //league name
-	@Column(nullable = false)
-	private Integer countryID; //team id for mapping which country of the league
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="countries_ID")
+	private Country country; //team id for mapping which country of the league
+	
 	@Column(nullable = false)
 	private Integer teamNums; //total num of teams within
+	
+	
+	//list for getting all teams in this league
+	@OneToMany(mappedBy = "league")
+	private List<Team> teams;
+	
+	
 	public long getId() {
 		return id;
 	}
@@ -33,11 +48,11 @@ public class League {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Integer getCountryID() {
-		return countryID;
+	public Country getCountryID() {
+		return country;
 	}
-	public void setCountryID(Integer countryID) {
-		this.countryID = countryID;
+	public void setCountryID(Country country) {
+		this.country = country;
 	}
 	public Integer getTeamNums() {
 		return teamNums;

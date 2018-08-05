@@ -1,21 +1,26 @@
 package com.ykyclm.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-@Entity
+@Entity(name = "Player")
 @Table(name = "player")
 public class Player {
 	
 	@Id
-    @GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	@Column(nullable = false)
 	private String firstName;
-	@Column(nullable = false, unique = true)
+	@Column(nullable = false)
 	private String surname;
 	@Column(nullable = true)
 	private Integer age;
@@ -30,7 +35,31 @@ public class Player {
 	@Column(nullable = true)
 	private Integer shirt;
 	
+	@ManyToMany(mappedBy = "players")
+    private List<Team> teams = new ArrayList<>();
 	
+	
+	
+	public Player() {
+	}
+	
+	
+	public Player( String firstName, String surname, Integer age, Integer height, Integer weight,
+			String position, String subPosition, Integer shirt) {
+		super();
+		this.firstName = firstName;
+		this.surname = surname;
+		this.age = age;
+		this.height = height;
+		this.weight = weight;
+		this.position = position;
+		this.subPosition = subPosition;
+		this.shirt = shirt;
+	}
+
+
+
+
 	public long getId() {
 		return id;
 	}
@@ -85,21 +114,15 @@ public class Player {
 	public void setShirt(Integer shirt) {
 		this.shirt = shirt;
 	}
-	public Integer getTeamID() {
-		return teamID;
-	}
-	public void setTeamID(Integer teamID) {
-		this.teamID = teamID;
-	}
-	public Integer getCountryID() {
-		return countryID;
-	}
-	public void setCountryID(Integer countryID) {
-		this.countryID = countryID;
-	}
-	@Column(nullable = false)
-	private Integer teamID;
-	@Column(nullable = true)
-	private Integer countryID;
 
+	
+	//methods
+	public List<Team> getTeams() {
+		return teams;
+	}
+	public void setTeams(List<Team> teams) {
+		this.teams = teams;
+	}
+	
+	
 }
