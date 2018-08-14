@@ -16,28 +16,27 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.ykyclm.entity.Player;
+import com.ykyclm.entity.Team;
 import com.ykyclm.service.PlayerService;
+import com.ykyclm.service.TeamService;
 
 
 @RestController
-//@CrossOrigin(maxAge = 3600)
-@RequestMapping("/api")
 public class PlayerAPIController {
 
 	@Autowired
 	PlayerService playerService;
 	
-	//@CrossOrigin
-	@RequestMapping("/hello")
+	@RequestMapping("/hello") //for testing
     public String index() {
         return "Hello World";
     }
 	
-	//@CrossOrigin(origins = "*")
-	@RequestMapping(value = "/players", method = RequestMethod.GET)
-    public List<Player> getAllNotes() {
+	@RequestMapping(value = "/api/players", method = RequestMethod.GET)
+    public List<Player> getAllPlayers() {
 		List<Player> players = playerService.getPlayerList();
         return players;
     }
+	
 
 }

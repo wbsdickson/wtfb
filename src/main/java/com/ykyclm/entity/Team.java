@@ -1,5 +1,6 @@
 package com.ykyclm.entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,14 +16,18 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.JoinColumn;
 
 @Entity(name = "Team")
 @Table(name = "team")
-public class Team {
+public class Team implements Serializable{
 
+	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
@@ -40,19 +45,11 @@ public class Team {
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="league_ID")
-	@JsonIgnore
+	@JsonBackReference
 	private League league;
 	
 	
 	
-   
-//@JoinTable(name = "book_publisher", joinColumns = @JoinColumn(name = "book_id", referencedColumnName = "id"), 
-//    inverseJoinColumns = @JoinColumn(name = "publisher_id", referencedColumnName = "id"))
-	
-//	@ManyToMany(cascade = { 
-//        CascadeType.PERSIST, 
-//        CascadeType.MERGE
-//    })
 	@ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "team_player",
         joinColumns = @JoinColumn(name = "team_id"),

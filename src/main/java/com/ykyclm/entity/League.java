@@ -15,6 +15,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "league")
@@ -40,7 +41,7 @@ public class League {
 
 	//list for getting all teams in this league
 	@OneToMany(mappedBy = "league")
-	@JsonIgnore
+	@JsonManagedReference
 	private Set<Team> teams;
 	
 	

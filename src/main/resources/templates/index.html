@@ -30,12 +30,12 @@
 	  <script>
 		function getDataFromAPI() {
 		    $.ajax({
-		    	url:"http://localhost:8085/api/hello",
+		    	type: "GET",
+		    	url:"http://localhost:8085/api/players",
 		    	contentType: "application/json",
-		        type: "GET",
 		        success: function (data) {
-		        	console.log("GET DATA API RESPONSE - ID::" + data);
-		        	console.log("GET DATA API RESPONSE - NAME::");
+		        	console.log(data);
+		        	$('#demo_id').append(data[0].firstName);
 		        }, error: function (jqXHR, textStatus, errorThrown) {
 		        }
 			});
