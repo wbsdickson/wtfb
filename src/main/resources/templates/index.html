@@ -22,6 +22,27 @@
   <div class="content-wrapper">
     <div class="container-fluid">
       <!-- Calendar-->	
+	  <input type="button" name="getData" id="getData" value="GET DATA" onclick="getDataFromAPI();"/>
+<!-- 	  <input type="button" name="postData" id="postData" value="POST DATA" onclick="postDataFromAPI();"/> -->
+	  <input type="text" name="demo_id" id="demo_id"/>
+	  <input type="text" name="demo_name" id="demo_name"/>
+	  <!-- ajax -->
+	  <script>
+		function getDataFromAPI() {
+		    $.ajax({
+		    	url:"http://localhost:8085/api/hello",
+		    	contentType: "application/json",
+		        type: "GET",
+		        success: function (data) {
+		        	console.log("GET DATA API RESPONSE - ID::" + data);
+		        	console.log("GET DATA API RESPONSE - NAME::");
+		        }, error: function (jqXHR, textStatus, errorThrown) {
+		        }
+			});
+		}
+		
+		
+	  </script>
       
       <!-- FUllCalendar End-->
       

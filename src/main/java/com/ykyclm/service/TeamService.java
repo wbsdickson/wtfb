@@ -2,6 +2,7 @@ package com.ykyclm.service;
 
 import com.ykyclm.entity.Team;
 import java.util.List;
+import java.util.Set;
 
 public interface TeamService {
 	
@@ -14,5 +15,7 @@ public interface TeamService {
 	public void edit(Team team);
 	
 	public void delete(long id);
+	
+	public Set<Team> listByLeagueId(long league_ID);
 
 }

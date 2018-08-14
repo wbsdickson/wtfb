@@ -17,6 +17,7 @@
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav" th:fragment="navbar">
     <a class="navbar-brand" href="/">What The Football - Wayne</a>
+    
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -27,6 +28,28 @@
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Dashboard</span>
           </a>
+        </li>
+        
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+            <i class="fa fa-braille"></i>
+            <span class="nav-link-text">Leagues</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseComponents">
+            <!-- #_Leagues-->
+            <li>
+              <a href="/league/1/table">Premier League</a>
+            </li>
+            <li>
+              <a href="/league/2/table">La Liga</a>
+            </li>
+            <li>
+              <a href="navbar.html">Champions League</a>
+            </li>
+            <li>
+              <a href="/cards">Cards</a>
+            </li>
+          </ul>
         </li>
 
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Players">
@@ -46,7 +69,7 @@
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Clubs">
           <a class="nav-link" href="/team/list">
             <i class="fa fa-fw fa-users"></i>
-            <span class="nav-link-text">Clubs</span> 
+            <span class="nav-link-text">Clubs</span>
           </a>
         </li>
 
@@ -69,20 +92,6 @@
             <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">Tables</span>
           </a>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-wrench"></i>
-            <span class="nav-link-text">Components</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseComponents">
-            <li>
-              <a href="navbar.html">Navbar</a>
-            </li>
-            <li>
-              <a href="/cards">Cards</a>
-            </li>
-          </ul>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">

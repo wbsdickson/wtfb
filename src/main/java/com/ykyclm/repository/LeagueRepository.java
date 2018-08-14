@@ -1,10 +1,10 @@
 package com.ykyclm.repository;
 
-import java.util.List;
 import java.util.Set;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import com.ykyclm.entity.League;
 import com.ykyclm.entity.Team;
 
 /**
@@ -13,10 +13,9 @@ import com.ykyclm.entity.Team;
  *
  */
 
-public interface TeamRepository extends JpaRepository<Team, Long>{
+public interface LeagueRepository extends JpaRepository<League, Long>{
 	
-	Team findById(long id);
+	League findById(long id);
 	void deleteById(Long id);
-	Set<Team> findByLeagueId(long league_id);
 	
 }

@@ -59,7 +59,6 @@ public class PlayerController {
     	model.addAttribute("player", playerService.findPlayerById(id));
         return "player/editPlayer";
     }	
-	
 	@PostMapping ("/edit")
 	public String edit(Player player) {
 		playerService.edit(player); //run update sql

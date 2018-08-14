@@ -26,38 +26,46 @@
         </li>
         <li class="breadcrumb-item active">Tables</li>
       </ol>
-
-      <!-- Add Player location -->
-      <div class="container">
-      	<h1>New player</h1>
-      	<div class="col-md-4">
-
-
-      		<form th:object="${player}" th:action="@{add}"  action="#" method="post">
-      			<input type="text" th:field="*{firstName}" class="form-control"  placeholder="Firstname" />
-      			<div style="clear: both; display: block; height: 10px;"></div>
-      			<input type="text" th:field="*{surname}" class="form-control"  placeholder="Surname" />
-      			<div style="clear: both; display: block; height: 10px;"></div>
-            <input type="text" th:field="*{age}" class="form-control" placeholder="Age" />
-            <div style="clear: both; display: block; height: 10px;"></div>
-            <input type="text" th:field="*{height}" class="form-control" placeholder="Height" />
-            <div style="clear: both; display: block; height: 10px;"></div>
-            <input type="text" th:field="*{weight}" class="form-control" placeholder="weight" />
-            <div style="clear: both; display: block; height: 10px;"></div>
-            <input type="text" th:field="*{position}" class="form-control" placeholder="Position" />
-            <div style="clear: both; display: block; height: 10px;"></div>
-            <input type="text" th:field="*{subPosition}" class="form-control" placeholder="sub-Position" />
-            <div style="clear: both; display: block; height: 10px;"></div>
-            <input type="text" th:field="*{shirt}" class="form-control" placeholder="Shirt No." />
-            <div style="clear: both; display: block; height: 10px;"></div>
-      			<input type="submit" class="btn btn-primary" value="Save"></input>
-      		</form>
-      		<div style="clear: both; display: block; height: 10px;"></div>
-			<button type="button" class="btn btn-primary" th:onclick="|window.location.href='@{/player/list}'|">Back</button>
-
-      	</div>
+      
+      <button type="button" class="btn btn-primary" th:onclick="|window.location.href='@{/player/add}'|">Add Player</button>      
+      <div style="clear: both; display: block; height: 10px;"></div>
+      
+      <!-- Example DataTables Card-->
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i>This is the page for showing the details for many aspects</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Shirt</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Shirt</th>
+                </tr>
+              </tfoot>
+              <tbody>
+               	<tr th:each="player : ${players}">
+              		<th scope="row" th:text="${player.id}"></th>
+<!-- 		            <td th:text="${player.code}"></td> -->
+					<td><a th:href="@{'../player/find/' + ${player.id}}" th:text="${player.firstName} + ' ' + ${player.surname}"></a></td>
+		            <td th:text="${player.shirt}"></td>
+		           
+		          
+		        </tr> 
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
       </div>
-
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->

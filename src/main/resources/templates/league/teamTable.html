@@ -20,44 +20,60 @@
   <div class="content-wrapper">
     <div class="container-fluid">
       <!-- Breadcrumbs-->
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-          <a href="/">Dashboard</a>
-        </li>
-        <li class="breadcrumb-item active">Tables</li>
-      </ol>
+<!--       <ol class="breadcrumb"> -->
+<!--         <li class="breadcrumb-item"> -->
+<!--           <a href="/">Dashboard</a> -->
+<!--         </li> -->
+<!--         <li class="breadcrumb-item active">Tables</li> -->
+<!--       </ol> -->
+      <!-- Breadcrumbs-->
+      
+      
+      <!-- Middle Menu Bar -->
+	  <div class="navbar">
+	    <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Overview</a> 
+	    <a href="#"><i class="fa fa-fw fa-search"></i> News</a> 
+	    <a href="#"><i class="fa fa-fw fa-envelope"></i> Matches</a> 
+	    <a href="#"><i class="fa fa-fw fa-user"></i> Table</a>
+	    <a href="#"><i class="fa fa-fw fa-user"></i> Stats</a>
+	  </div>
+      <!-- Middle Menu Bar End -->
 
-      <!-- Add Player location -->
-      <div class="container">
-      	<h1>New player</h1>
-      	<div class="col-md-4">
-
-
-      		<form th:object="${player}" th:action="@{add}"  action="#" method="post">
-      			<input type="text" th:field="*{firstName}" class="form-control"  placeholder="Firstname" />
-      			<div style="clear: both; display: block; height: 10px;"></div>
-      			<input type="text" th:field="*{surname}" class="form-control"  placeholder="Surname" />
-      			<div style="clear: both; display: block; height: 10px;"></div>
-            <input type="text" th:field="*{age}" class="form-control" placeholder="Age" />
-            <div style="clear: both; display: block; height: 10px;"></div>
-            <input type="text" th:field="*{height}" class="form-control" placeholder="Height" />
-            <div style="clear: both; display: block; height: 10px;"></div>
-            <input type="text" th:field="*{weight}" class="form-control" placeholder="weight" />
-            <div style="clear: both; display: block; height: 10px;"></div>
-            <input type="text" th:field="*{position}" class="form-control" placeholder="Position" />
-            <div style="clear: both; display: block; height: 10px;"></div>
-            <input type="text" th:field="*{subPosition}" class="form-control" placeholder="sub-Position" />
-            <div style="clear: both; display: block; height: 10px;"></div>
-            <input type="text" th:field="*{shirt}" class="form-control" placeholder="Shirt No." />
-            <div style="clear: both; display: block; height: 10px;"></div>
-      			<input type="submit" class="btn btn-primary" value="Save"></input>
-      		</form>
-      		<div style="clear: both; display: block; height: 10px;"></div>
-			<button type="button" class="btn btn-primary" th:onclick="|window.location.href='@{/player/list}'|">Back</button>
-
-      	</div>
+      
+      <!-- Example DataTables Card-->
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> <a th:text="${league.name} + ' Table'"></a>  </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Code</th>
+                  <th>Name</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th>ID</th>
+                  <th>Code</th>
+                  <th>Name</th>
+                </tr>
+              </tfoot>
+              <tbody>
+               	<tr th:each="team : ${teams}">
+              		<th scope="row" th:text="${team.id}"></th>
+		            <td th:text="${team.code}"></td>
+					<td><a th:href="@{'' + ${team.id} +'/squad'}" th:text="${team.name}"></a></td>
+<!-- 		            <td th:text="${team.name}"></td> -->
+		        </tr> 
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
       </div>
-
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->

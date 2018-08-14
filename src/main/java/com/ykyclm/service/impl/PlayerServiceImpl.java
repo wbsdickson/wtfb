@@ -1,6 +1,7 @@
 package com.ykyclm.service.impl;
 
 import java.util.List;
+import java.util.Set;
 
 import com.ykyclm.entity.Player;
 import com.ykyclm.repository.PlayerRepository;
@@ -43,6 +44,11 @@ public class PlayerServiceImpl implements PlayerService{
 	@Override
 	public void delete(long id) {
 		playerRepository.deleteById(id);
+	}
+
+	@Override
+	public Set<Player> listByTeamsId(long team_id) {
+		return playerRepository.findByTeamsId(team_id);
 	}
 
 

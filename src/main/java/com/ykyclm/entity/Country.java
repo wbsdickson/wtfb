@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "countries")
 public class Country {
@@ -24,9 +26,11 @@ public class Country {
 	
 	//list for all leagues and teams
 	@OneToMany(mappedBy = "country")
+	@JsonIgnore
 	private List<League> leagues; // karson : use set better
 	
 	@OneToMany(mappedBy = "country")
+	@JsonIgnore
 	private List<Team> teams;
 	
 	public long getId() {

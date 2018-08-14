@@ -1,7 +1,10 @@
 package com.ykyclm.entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,9 +14,13 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity(name = "Player")
 @Table(name = "player")
-public class Player {
+public class Player implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,7 +43,7 @@ public class Player {
 	private Integer shirt;
 	
 	@ManyToMany(mappedBy = "players")
-    private List<Team> teams = new ArrayList<>();
+    private Set<Team> teams = new HashSet<>();
 	
 	
 	
@@ -115,14 +122,15 @@ public class Player {
 		this.shirt = shirt;
 	}
 
-	
-	//methods
-	public List<Team> getTeams() {
+	public Set<Team> getTeams() {
 		return teams;
 	}
-	public void setTeams(List<Team> teams) {
+	public void setTeams(Set<Team> teams) {
 		this.teams = teams;
 	}
+
+	
+	
 	
 	
 }

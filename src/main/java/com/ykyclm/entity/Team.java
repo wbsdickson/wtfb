@@ -14,6 +14,9 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.JoinColumn;
 
 @Entity(name = "Team")
@@ -32,21 +35,30 @@ public class Team {
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="countries_ID")
+	@JsonIgnore
 	private Country country;
-	
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="league_ID")
+	@JsonIgnore
 	private League league;
 	
-	@ManyToMany(cascade = { 
-        CascadeType.PERSIST, 
-        CascadeType.MERGE
-    })
+	
+	
+   
+//@JoinTable(name = "book_publisher", joinColumns = @JoinColumn(name = "book_id", referencedColumnName = "id"), 
+//    inverseJoinColumns = @JoinColumn(name = "publisher_id", referencedColumnName = "id"))
+	
+//	@ManyToMany(cascade = { 
+//        CascadeType.PERSIST, 
+//        CascadeType.MERGE
+//    })
+	@ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "team_player",
-        joinColumns = @JoinColumn(name = "player_id"),
-        inverseJoinColumns = @JoinColumn(name = "team_id")
+        joinColumns = @JoinColumn(name = "team_id"),
+        inverseJoinColumns = @JoinColumn(name = "player_id")
     )
+	@JsonIgnore
     private List<Player> players = new ArrayList<>();
 	
 	public long getId() {
