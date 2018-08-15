@@ -38,9 +38,9 @@ public class Team implements Serializable{
 	@Column(nullable = false)
 	private String type;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="countries_ID")
-	@JsonIgnore
+	//@JsonIgnore
 	private Country country;
 	
 	@ManyToOne(fetch=FetchType.LAZY)

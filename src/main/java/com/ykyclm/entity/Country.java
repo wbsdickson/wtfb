@@ -11,12 +11,14 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name = "countries")
+@JsonAutoDetect()
 public class Country implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -31,7 +33,6 @@ public class Country implements Serializable{
 	
 	//list for all leagues and teams
 	@OneToMany(mappedBy = "country")
-	@JsonIgnore
 	private List<League> leagues; // karson : use set better
 	
 	@OneToMany(mappedBy = "country")

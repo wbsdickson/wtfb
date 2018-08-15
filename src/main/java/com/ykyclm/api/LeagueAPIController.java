@@ -1,5 +1,6 @@
 package com.ykyclm.api;
 
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,13 @@ public class LeagueAPIController {
 	
 	@Autowired
 	PlayerService playerService;
+	
+	@RequestMapping(value = "/api/leagues", method = RequestMethod.GET)// @id = rank within the league
+	public List<League> listLeague() {
+		List<League> league = leagueService.getLeagueList();      
+		return league;
+	}
+	
 	
 	//Premier League=1 //la liga=2
 	@RequestMapping(value = "/api/{id}/table", method = RequestMethod.GET)// @id = rank within the league
