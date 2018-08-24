@@ -3,9 +3,9 @@ package com.ykyclm.entity.vo;
 public class CountryVo {
 	 
 	private long id;
- 
 	private String code;
 	private String name;
+	
 	public long getId() {
 		return id;
 	}

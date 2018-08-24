@@ -3,14 +3,10 @@ package com.ykyclm.entity.vo;
 public class TeamVo {
 	 
 	private long id;
- 
 	private String name;
- 
 	private String code;
-	 
-	private String type;
-	 
-	 private CountryVo country;
+	private String type; 
+	private CountryVo country;
 	 
 	//private League league;
 

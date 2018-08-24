@@ -6,10 +6,10 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class WebSpringConfig {
+	
 	@Bean
 	public ModelMapper modelMapper() {
 		return new ModelMapper();
-		
 	}
 
 }
