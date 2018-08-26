@@ -6,9 +6,8 @@ public class TeamVo {
 	private String name;
 	private String code;
 	private String type; 
-	private CountryVo country;
-	 
-	//private League league;
+	private CountryVo country; 
+	//private LeagueVo league;
 
 	public long getId() {
 		return id;
@@ -50,16 +49,15 @@ public class TeamVo {
 		this.country = country;
 	}
 
- 
-//
-//	public League getLeague() {
+//	public LeagueVo getLeague() {
 //		return league;
 //	}
 //
-//	public void setLeague(League league) {
+//	public void setLeague(LeagueVo league) {
 //		this.league = league;
 //	}
-//	
+
+
 	
 
 }

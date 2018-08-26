@@ -43,7 +43,7 @@ public class Team implements Serializable{
 	//@JsonIgnore
 	private Country country;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="league_ID")
 	@JsonBackReference
 	private League league;

@@ -1,74 +1,20 @@
 package com.ykyclm.entity.vo;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-
-
-@Entity(name = "Player")
-@Table(name = "player")
-public class PlayerVo implements Serializable{
+public class PlayerVo {
 	
-	private static final long serialVersionUID = 1L;
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	@Column(nullable = false)
 	private String firstName;
-	@Column(nullable = false)
 	private String surname;
-	@Column(nullable = true)
 	private Integer age;
-	@Column(nullable = true)
 	private Integer height;
-	@Column(nullable = true)
 	private Integer weight;
-	@Column(nullable = true)
 	private String position;
-	@Column(nullable = true)
 	private String subPosition;
-	@Column(nullable = true)
 	private Integer shirt;
+	private Set<TeamVo> teams;
 	
-	@ManyToMany(mappedBy = "players")
-    private Set<Team> teams = new HashSet<>();
-	
-	
-	
-	public PlayerVo() {
-	}
-	
-	
-	public PlayerVo( String firstName, String surname, Integer age, Integer height, Integer weight,
-			String position, String subPosition, Integer shirt) {
-		super();
-		this.firstName = firstName;
-		this.surname = surname;
-		this.age = age;
-		this.height = height;
-		this.weight = weight;
-		this.position = position;
-		this.subPosition = subPosition;
-		this.shirt = shirt;
-	}
-
-
-
-
 	public long getId() {
 		return id;
 	}
@@ -123,16 +69,11 @@ public class PlayerVo implements Serializable{
 	public void setShirt(Integer shirt) {
 		this.shirt = shirt;
 	}
-
-	public Set<Team> getTeams() {
+	public Set<TeamVo> getTeams() {
 		return teams;
 	}
-	public void setTeams(Set<Team> teams) {
+	public void setTeams(Set<TeamVo> teams) {
 		this.teams = teams;
 	}
-
-	
-	
-	
 	
 }

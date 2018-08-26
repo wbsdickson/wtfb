@@ -3,6 +3,10 @@ package com.ykyclm.api;
 import java.util.List;
 import java.util.Set;
 
+import javax.annotation.Resource;
+
+import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ykyclm.entity.League;
 import com.ykyclm.entity.Player;
 import com.ykyclm.entity.Team;
+import com.ykyclm.entity.vo.LeagueVo;
+import com.ykyclm.entity.vo.TeamVo;
 import com.ykyclm.service.LeagueService;
 import com.ykyclm.service.PlayerService;
 import com.ykyclm.service.TeamService;
@@ -21,6 +27,9 @@ import com.ykyclm.service.TeamService;
 
 @RestController
 public class LeagueAPIController {
+	
+	@Resource(name="modelMapper")
+	private ModelMapper modelMapper;
 	
 	@Autowired
 	LeagueService leagueService;
@@ -32,9 +41,10 @@ public class LeagueAPIController {
 	PlayerService playerService;
 	
 	@RequestMapping(value = "/api/leagues", method = RequestMethod.GET)// @id = rank within the league
-	public List<League> listLeague() {
-		List<League> league = leagueService.getLeagueList();      
-		return league;
+	public List<LeagueVo> listLeague() {
+		List<League> leagues = leagueService.getLeagueList();
+		List<LeagueVo> listLeagueVo = modelMapper.map(leagues, new TypeToken<List<TeamVo>>(){}.getType());
+		return listLeagueVo;
 	}
 	
 	
