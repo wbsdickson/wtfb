@@ -43,23 +43,23 @@ public class LeagueAPIController {
 	@RequestMapping(value = "/api/leagues", method = RequestMethod.GET)// @id = rank within the league
 	public List<LeagueVo> listLeague() {
 		List<League> leagues = leagueService.getLeagueList();
-		List<LeagueVo> listLeagueVo = modelMapper.map(leagues, new TypeToken<List<TeamVo>>(){}.getType());
+		List<LeagueVo> listLeagueVo = modelMapper.map(leagues, new TypeToken<List<LeagueVo>>(){}.getType());
 		return listLeagueVo;
 	}
 	
 	
-	//Premier League=1 //la liga=2
-	@RequestMapping(value = "/api/{id}/table", method = RequestMethod.GET)// @id = rank within the league
-	public Set<Team> listTable(@PathVariable("id") long id) {
-		Set<Team> teams = teamService.listByLeagueId(id);      
-		return teams;
-	}
-	
-	@RequestMapping(value = "/api/{id}/{team_id}/squad", method = RequestMethod.GET)//	api/1/6/squad 
-	public Set<Player> viewSquad(@PathVariable("team_id") long team_id) {
-		Set<Player> players = playerService.listByTeamsId(team_id);
-		return players;
-	}
+//	//Premier League=1 //la liga=2
+//	@RequestMapping(value = "/api/{id}/table", method = RequestMethod.GET)// @id = rank within the league
+//	public Set<Team> listTable(@PathVariable("id") long id) {
+//		Set<Team> teams = teamService.listByLeagueId(id);      
+//		return teams;
+//	}
+//	
+//	@RequestMapping(value = "/api/{id}/{team_id}/squad", method = RequestMethod.GET)//	api/1/6/squad 
+//	public Set<Player> viewSquad(@PathVariable("team_id") long team_id) {
+//		Set<Player> players = playerService.listByTeamsId(team_id);
+//		return players;
+//	}
 	
 
 }

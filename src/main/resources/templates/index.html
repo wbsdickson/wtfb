@@ -21,31 +21,9 @@
 
   <div class="content-wrapper">
     <div class="container-fluid">
-      <!-- Calendar-->	
-	  <input type="button" name="getData" id="getData" value="GET DATA" onclick="getDataFromAPI();"/>
-<!-- 	  <input type="button" name="postData" id="postData" value="POST DATA" onclick="postDataFromAPI();"/> -->
-	  <input type="text" name="demo_id" id="demo_id"/>
-	  <input type="text" name="demo_name" id="demo_name"/>
-	  <!-- ajax -->
-	  <script>
-		function getDataFromAPI() {
-		    $.ajax({
-		    	type: "GET",
-		    	url:"http://localhost:8085/api/players",
-		    	contentType: "application/json",
-		        success: function (data) {
-		        	console.log(data);
-		        	$('#demo_id').append(data[0].firstName);
-		        }, error: function (jqXHR, textStatus, errorThrown) {
-		        }
-			});
-		}
-		
-		
-	  </script>
-      
+      <!-- Calendar-->
       <!-- FUllCalendar End-->
-      
+      <div th:replace="~{navbar :: midnavbar}"></div>
       
       	
       <!-- Breadcrumbs-->
@@ -55,6 +33,7 @@
         </li>
         <li class="breadcrumb-item active">My Dashboard</li>
       </ol>
+      
       <!-- Icon Cards-->
       <div class="row">
         <div class="col-xl-3 col-sm-6 mb-3">
@@ -156,6 +135,8 @@
             </div>
             <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
           </div>
+          
+          
           <!-- Card Columns Example Social Feed-->
           <div class="mb-0 mt-4">
             <i class="fa fa-newspaper-o"></i> News Feed</div>
@@ -218,6 +199,8 @@
               </div>
               <div class="card-footer small text-muted">Posted 32 mins ago</div>
             </div>
+            
+            
             <!-- Example Social Card-->
             <div class="card mb-3">
               <a href="#">

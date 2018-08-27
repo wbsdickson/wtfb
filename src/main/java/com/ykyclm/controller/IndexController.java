@@ -31,31 +31,17 @@ public class IndexController {
 	  return "login.html";
 	}
 	
+	@RequestMapping("/register")  //for redirect to page
+	public String register() {
+	  return "register.html";
+	}
+	
 	@RequestMapping("/tables")  //for redirect to page
 	public String tables() {
 	  return "tables.html";
 	}
-	
-	
-	//remarks
-//	@RequestMapping("/")
-//  public String index(ModelMap map) {
-//      map.addAttribute("home", "This is the example from YKY!!! ^^");  //host <-- html variables  <== pass variables
-//      return "index"; //route to html in ./templates
-//  }	
-	
-//	@ResponseBody
-//    @RequestMapping("/hello")
-//    public String index() {
-//        return "Hello World";
-//    }
-    
-	@ResponseBody
-    @RequestMapping("/hello/yky")
-    public String test() {
-        return "This is created by yky!!";
-    }
-    
+
+
     
     
 

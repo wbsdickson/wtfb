@@ -21,6 +21,7 @@
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
@@ -30,7 +31,7 @@
           </a>
         </li>
         
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Leagues">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
             <i class="fa fa-braille"></i>
             <span class="nav-link-text">Leagues</span>
@@ -60,7 +61,7 @@
         </li>
 
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Matches">
-          <a class="nav-link" href="">
+          <a class="nav-link" href="/">
             <i class="fa fa-fw fa-futbol-o"></i>
             <span class="nav-link-text">Matches</span>
           </a>
@@ -80,19 +81,20 @@
           </a>
         </li>
 
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
+        <!-- <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
           <a class="nav-link" href="/charts">
             <i class="fa fa-fw fa-area-chart"></i>
             <span class="nav-link-text">Charts</span>
           </a>
-        </li>
+        </li> -->
 
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+        <!-- <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
           <a class="nav-link" href="/tables">
             <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">Tables</span>
           </a>
-        </li>
+        </li> -->
+        
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-file"></i>
@@ -100,16 +102,16 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseExamplePages">
             <li>
-              <a href="login.html">Login Page</a>
+              <a href="/login">Login Page</a>
             </li>
             <li>
-              <a href="register.html">Registration Page</a>
+              <a href="/register">Registration Page</a>
             </li>
             <li>
-              <a href="forgot-password.html">Forgot Password Page</a>
+              <a href="/forgot-password">Forgot Password Page</a>
             </li>
             <li>
-              <a href="blank.html">Blank Page</a>
+              <a href="/blank">Blank Page</a>
             </li>
           </ul>
         </li>
@@ -257,13 +259,24 @@
   </nav>
 
 
+	<!-- Middle Menu Bar -->
+	<div class="midnavbar" th:fragment="midnavbar">
+	  <a class="" href="../../"><i class="fa fa-picture-o"></i> Overview</a> 
+	  <a class="" href="../../news/"><i class="fa fa-newspaper-o"></i> News</a> 
+	  <a class="" href="#"><i class="fa fa-fw fa-futbol-o"></i> Matches</a> 
+	  <a class="" href="#"><i class="fa fa-table"></i> Table</a>
+	</div>
+	<!-- Middle Menu Bar End -->
+
+
+
 
   <div class="content-wrapper">
     <div class="container-fluid">
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Dashboard</a>
+          <a href="#">DashboardAAAA</a>
         </li>
         <li class="breadcrumb-item active">Navbar</li>
       </ol>
@@ -276,6 +289,9 @@
       <div style="height: 1000px;"></div>
     </div>
     <!-- /.container-fluid-->
+    
+    
+    
     <!-- /.content-wrapper-->
     <footer class="sticky-footer">
       <div class="container">

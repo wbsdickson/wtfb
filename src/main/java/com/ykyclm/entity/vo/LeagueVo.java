@@ -11,7 +11,6 @@ public class LeagueVo {
 	private Integer rank; //total num of teams within
 	private Set<TeamVo> teams;
 	
-	
 	public long getId() {
 		return id;
 	}
