@@ -3,6 +3,7 @@ package com.ykyclm.entity;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -14,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -49,6 +51,9 @@ public class Team implements Serializable{
 	private League league;
 	
 	
+	//list for getting all teams in this table
+	@OneToMany(mappedBy = "team")
+	private Set<Tables> tables;
 	
 	@ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "team_player",

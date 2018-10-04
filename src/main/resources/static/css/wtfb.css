@@ -1,3 +1,9 @@
+/* variable */
+:root{
+	
+}
+
+
 * {
   box-sizing: border-box
 }
@@ -11,7 +17,7 @@ body {
   background-color: #343a40;
   overflow: auto;
   margin-bottom: 15px;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .midnavbar a {
@@ -24,17 +30,32 @@ body {
   text-align: center;
 }
 
+.midnavbar.five a {
+	width: 20%; 
+}
+
 .midnavbar a:hover {
-  background-color: #000;
+  /* background-color: #000; */
+  background-color: #ff9300;
+  border-radius: 10px; 
+  
 }
 
 .mnbactive {
   background-color: #4CAF50;
+  border-radius: 10px; 
 }
 
 @media screen and (max-width: 500px) {
   .midnavbar a {
     float: none;
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+  
+  .midnavbar.five a {
+ 
     display: block;
     width: 100%;
     text-align: left;

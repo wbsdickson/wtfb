@@ -8,5 +8,27 @@ $(document).ready(function(){
 	});
 	//midNarBar active class end
 	
+	$("#ajaxBtn").click(function() {
+		
+		var ajaxUrl = 'https://raw.githubusercontent.com/openfootball/football.json/master/2016-17/at.1.clubs.json';
+		$('#dataTable').DataTable().destroy();
+		
+		$('#dataTable').DataTable( {
+	        "processing": true,
+	        "serverSide": true,
+	        "ajax": {
+	            "url": ajaxUrl,
+	            "dataSrc": "clubs"
+	        },
+	        "columns": [
+	        	{"data" : "key"},
+    		    {"data" : "name"},
+    		    {"data" : "code"}
+	        ]
+	    } );
+		
+	});
+	
+	
 	
 });

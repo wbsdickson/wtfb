@@ -1,6 +1,5 @@
 package com.ykyclm.entity;
 
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -17,7 +16,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
-@Entity
+@Entity(name = "League")
 @Table(name = "league")
 public class League {
 	
@@ -44,6 +43,12 @@ public class League {
 	@JsonManagedReference
 	private Set<Team> teams;
 	
+	//list for getting all tables in this league
+	@OneToMany(mappedBy = "league")
+	private Set<Tables> tables;
+	
+	
+	
 	
 	public long getId() {
 		return id;
@@ -57,32 +62,34 @@ public class League {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Country getCountryID() {
-		return country;
-	}
-	public void setCountryID(Country country) {
-		this.country = country;
-	}
 	public Integer getTeamNums() {
 		return teamNums;
 	}
 	public void setTeamNums(Integer teamNums) {
 		this.teamNums = teamNums;
 	}
-	
 	public Integer getRank() {
 		return rank;
 	}
 	public void setRank(Integer rank) {
 		this.rank = rank;
 	}
-	
-	
 	public Set<Team> getTeams() {
 		return teams;
 	}
 	public void setTeams(Set<Team> teams) {
 		this.teams = teams;
 	}
-
+	public Country getCountry() {
+		return country;
+	}
+	public void setCountry(Country country) {
+		this.country = country;
+	}
+	public Set<Tables> getTables() {
+		return tables;
+	}
+	public void setTables(Set<Tables> tables) {
+		this.tables = tables;
+	}
 }

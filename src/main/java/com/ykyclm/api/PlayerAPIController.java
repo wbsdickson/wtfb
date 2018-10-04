@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.google.gson.Gson;
 import com.ykyclm.entity.Player;
 import com.ykyclm.entity.vo.PlayerVo;
 import com.ykyclm.service.PlayerService;
@@ -31,6 +32,8 @@ public class PlayerAPIController {
 		List<PlayerVo> listPlayerVo = modelMapper.map(players, new TypeToken< List<PlayerVo>>(){}.getType());
         return listPlayerVo;
     }
+	
+
 	
 
 }
