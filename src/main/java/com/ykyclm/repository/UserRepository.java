@@ -1,13 +1,13 @@
 package com.ykyclm.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.ykyclm.entity.User;
 
-@Repository
-public interface UserRepository extends CrudRepository<User, Long> {
-	
-    User findByUsername(String username);
 
+@Repository("userRepository")
+public interface UserRepository extends JpaRepository<User, Long> {
+	
+	User findByEmail(String email);
 }
